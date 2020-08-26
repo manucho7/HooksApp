@@ -1,42 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from './Message';
+import React, { useEffect } from 'react';
+import { useForm } from '../../hooks/useForm';
 import './effects.css';
 
-export const SimpleForm = () => {
+export const FormWithCustomHook = () => {
 //aqui manejamos el estado..objeto que recibe nombre, email
-    const [formState, setFormState] = useState({
+    const [formValues, handleInputChange] = useForm({
         name: '',
-        email: ''
-    })
+        email: '',
+        password: ''
+    });
 //desestructuramos propiedades para no tener que hacer
 //formState.name || formState.email
-    const { name, email } = formState;
+    const { name, email, password } = formValues;
 
-//algunos efectos para cuando se carga nuevamente el componente
+//implementamos efectos    
     useEffect( () => {
-//        console.log('hey');
-    }, [] );
-
-    useEffect( () => {
-//        console.log('formState cambio');
-    }, [ formState ]);
-
-    useEffect( () => {
-//        console.log('email cambio');
+        console.log('el email cambio');
     }, [ email ]);
 
+//funcion para el evento del formulario
 
-    const handleInputChange = ({ target }) => {
-        
-        setFormState({
-            ...formState,
-            [ target.name ]: target.value
-        })
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log( formValues );
     }
 
     return (
-        <>
-            <h1>useEffect</h1>
+        <form onSubmit={ handleSubmit }>
+            <h1>FormWithCustomHook</h1>
             <hr />
 
             <div className="form-group">
@@ -63,8 +55,21 @@ export const SimpleForm = () => {
                 />
             </div>
 
-            { (name ==='123') && <Message /> }
+            <div className="form-group">
+                <input 
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    placeholder="****"
+                    value={ password }
+                    onChange={ handleInputChange }
+                />
+            </div>
 
-        </>
+            <button type="submit" className="btn btn-primary">
+                Guardar
+            </button>
+
+        </form>
     )
 }
