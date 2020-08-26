@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch';
 import { useCounter } from '../../hooks/useCounter';
-
 import '../02-useEffect/effects.css';
 
 export const MultipleCustomHooks = () => {
@@ -12,8 +11,6 @@ export const MultipleCustomHooks = () => {
 // &&= si existe la data, lo siguiente, extrae posicion 0 de la data
 //!!doblenegacion = transformar null en un false
     const { author, quote } = !!data && data[0];
-
-    console.log( author, quote );
 
     return (
         <div>
