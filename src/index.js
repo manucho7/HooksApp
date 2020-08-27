@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RealRef } from './components/04-useRef/RealRef';
-// import { FocusScreen } from './components/04-useRef/FocusScreen';
+import { LayoutEffect } from './components/05-useLayoutEffect/LayoutEffect';
+//import { RealRef } from './components/04-useRef/RealRef';
+//import { FocusScreen } from './components/04-useRef/FocusScreen';
 //import { FormWithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 //import { SimpleForm } from '../src/components/02-useEffect/SimpleForm';
 //import { CounterWithCustomHooks } from './components/01-useState/CounterWithCustomHooks';
@@ -10,7 +11,7 @@ import { RealRef } from './components/04-useRef/RealRef';
 //import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
 
 ReactDOM.render(
-    <RealRef />,
+    <LayoutEffect />,
   document.getElementById('root')
 );
 
