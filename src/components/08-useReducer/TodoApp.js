@@ -12,20 +12,59 @@ const initialState = [{
 
 export const TodoApp = () => {
 
-    const [ todos ] = useReducer(TodoReducer, initialState)
+    const [ todos ] = useReducer(TodoReducer, initialState);
+    console.log(todos);
 
     return (
         <div>
-            <h1>TodoApp</h1>
+            <h1>TodoApp ( { todos.length } )</h1>
             <hr />
 
-            <ul>
+            <div className="row">
 
-                <li>Hola</li>
-                <li>Mundo</li>
-                <li>Hola de nuevo</li>
+                <div className="col-7">
+                    <ul className="list-group list-group-flush">
+                        {
+                            todos.map( (todo, i) => (
+                                <li
+                                    key={ todo.id }
+                                    className="list-group-item"
+                                > 
+                                    <p className="text-center"> { i + 1 }. {todo.desc } </p>
 
-            </ul>
+                                    <button
+                                        className="btn btn-danger"
+                                    >
+                                        Borrar
+                                    </button>
+                                </li>
+                            ))
+                        }
+                    </ul>
+
+                </div>
+                <div className="col-5">
+                    <h4>
+                        Agregar TODO
+                    </h4>
+                    <hr />
+
+                    <form>
+                        <input 
+                            className="form-control"
+                            type="text"
+                            name="description"
+                            placeholder="Aprender ...."
+                            autoComplete="off"
+                        />
+                        <button
+                            className="btn btn-outline-primary mt-1 btn-block"
+                        >
+                            Agregar
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
