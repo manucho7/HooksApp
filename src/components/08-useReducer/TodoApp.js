@@ -15,10 +15,19 @@ export const TodoApp = () => {
     const [ { description }, handleInputChange, reset ] = useForm({
         description: ''
     });
-
+//efecto grabara cualquier cambio que suceda en el localstorage
+//cada vez que la dependencia todos cambie, vuelve a disparar el efecto
     useEffect( () => {
         localStorage.setItem('todos', JSON.stringify( todos ));
     }, [todos]);
+
+    const handleDelete = (todoId) => {
+        const action = {
+            type: 'delete',
+            payload: todoId
+        }
+        dispatch( action );
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -61,6 +70,7 @@ export const TodoApp = () => {
 
                                     <button
                                         className="btn btn-danger"
+                                        onClick={ () => handleDelete( todo.id ) }
                                     >
                                         Borrar
                                     </button>
