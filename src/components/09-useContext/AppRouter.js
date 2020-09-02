@@ -18,7 +18,6 @@ export const AppRouter = () => {
                 <NavBar />
 
                 <Switch>
-
                     <Route exact path="/" component={ HomeScreen } />
                     <Route exact path="/about" component={ AboutScreen } />
                     <Route exact path="/login" component={ LoginScreen } />
@@ -26,7 +25,6 @@ export const AppRouter = () => {
                 </Switch>
 
             </div>
-
         </Router>
     )
 }
