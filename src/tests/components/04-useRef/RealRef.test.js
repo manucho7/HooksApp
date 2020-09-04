@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { RealRef } from '../../../components/04-useRef/RealRef';
 import '@testing-library/jest-dom';
 import '@testing-library/dom';
-import { RealRef } from '../../../components/04-useRef/RealRef';
-
 
 describe('Pruebas en <RealRef />', () => {
 
