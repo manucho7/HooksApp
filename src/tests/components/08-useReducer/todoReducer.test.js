@@ -29,4 +29,28 @@ describe('Pruebas en todoReducer', () => {
         expect( state ).toEqual([ ...demoTodos, newTodo ]);
     });
 
+    test('debe de borrar un Todo', () => {
+        
+        const action = {
+            type: 'delete',
+            payload: 1
+        }
+
+        const state = TodoReducer( demoTodos, action );
+        expect( state.length ).toBe(1);
+        expect( state ).toEqual( [ demoTodos[1] ] );
+    });
+    
+    test('debe de hacer el toggle del Todo', () => {
+        const action = {
+            type: 'toggle',
+            payload: 1
+        }
+
+        const state = TodoReducer( demoTodos, action );
+        expect( state[0].done ).toBe(true);
+        expect( state[1] ).toEqual( demoTodos[1] );
+        
+    });
+
 })
