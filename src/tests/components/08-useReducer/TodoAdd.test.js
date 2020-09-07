@@ -4,7 +4,6 @@ import { TodoAdd } from '../../../components/08-useReducer/TodoAdd';
 import '@testing-library/jest-dom';
 import '@testing-library/dom';
 
-
 describe('Pruebas en TodoAdd', () => {
     const handleAddTodo = jest.fn();
     const wrapper = shallow( 
@@ -39,6 +38,5 @@ describe('Pruebas en TodoAdd', () => {
             done: false
         });
         expect( wrapper.find('input').prop('value') ).toBe('');
-
     });
 })
