@@ -30,7 +30,5 @@ describe('Pruebas en <TodoApp/>', () => {
 
         wrapper.find('TodoList').prop('handleDelete')(demoTodos[0].id);
         expect(wrapper.find('h1').text().trim()).toBe('TodoApp ( 0 )');
-
-    })
-    
+    });
 })
