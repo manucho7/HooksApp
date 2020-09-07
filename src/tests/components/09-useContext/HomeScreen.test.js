@@ -9,10 +9,6 @@ describe('Pruebas en <HomeScreen/>', () => {
         email: 'manucho7@gmail.com'
     }
 
-    const setUser = () => {
-
-    }
-
     const wrapper = mount(
         <UserContext.Provider value={{
             user
