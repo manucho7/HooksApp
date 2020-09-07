@@ -26,5 +26,4 @@ describe('Pruebas sobre <LoginScreen />', () => {
             name: 'Manusi'
         });
     });
-    
 })
